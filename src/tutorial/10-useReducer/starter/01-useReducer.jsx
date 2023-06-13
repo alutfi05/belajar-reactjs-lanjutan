@@ -5,7 +5,11 @@ const defaultState = {
     people: data,
 };
 
-const reducer = () => {};
+const reducer = (state, action) => {
+    if (action.type === 'CLEAR_LIST') {
+        return { ...state, people: [] };
+    }
+};
 
 const ReducerBasics = () => {
     const [state, dispatch] = useReducer(reducer, defaultState);
@@ -16,6 +20,7 @@ const ReducerBasics = () => {
     };
 
     const clearList = () => {
+        dispatch({ type: 'CLEAR_LIST' });
         // setPeople([])
     };
 
