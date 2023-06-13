@@ -1,15 +1,15 @@
 const UserContainer = ({ user, logout }) => {
-    const name = user?.name;
-
     return (
         <div className="user-container">
-            <p>{name}</p>
-            {name != null || undefined ? (
-                <button onClick={logout} className="btn">
-                    logout
-                </button>
+            {user ? (
+                <>
+                    <p>Hello There, {user?.name?.toUpperCase()}</p>
+                    <button onClick={logout} className="btn">
+                        logout
+                    </button>
+                </>
             ) : (
-                <button className="btn">please login</button>
+                <p>Please Login</p>
             )}
         </div>
     );
